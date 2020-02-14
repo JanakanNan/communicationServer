@@ -1,0 +1,15 @@
+const express = require('express');
+const app = express();
+const axios = require("axios");
+
+
+
+app.get('/', async function (req, res, next) {
+    var data = await axios.get("http://localhost:3001");
+    console.log(data.data);
+    res.json("ping");
+});
+
+app.listen(3000, function () {
+    console.log('Example app listening on port 3000!')
+});
